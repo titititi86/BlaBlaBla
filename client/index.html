@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" ng-app="app" ng-controller="MainController as main">
+
+<head>
+  <base href="/">
+  <title>{{main.title}}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <!-- MainController -->
+  <div class="container">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Home</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href="/users">Users</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li ng-hide="loggedIn"><a href="/register">Register</a></li>
+          <li ng-hide="loggedIn"><a href="/login">Login</a></li>
+          <li ng-show="loggedIn" class="dropdown" ng-controller="">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Signed in as {{main.firstname}}<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <!-- <li ng-show="loggedIn">Signed in as {{currentUser.username}} {{currentUser.lastname}}</li> -->
+              <li ng-show="loggedIn"><a href="/logout">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- !Navbar -->
+
+    <!-- Angular View -->
+    <div ng-view>
+
+    </div>
+    <!-- !Angular View -->
+
+  </div>
+  <!-- MainController -->
+
+  <!-- JS Includes -->
+  <script src="/libs/jquery/dist/jquery.min.js"></script>
+  <script src="/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="/libs/angular/angular.js"></script>
+  <script src="/libs/angular/angular-route.js"></script>
+  <script src="/js/app.js"></script>
+  <script src="/js/services.js"></script>
+  <script src="/js/controllers.js"></script>
+  <script src="/js/loginController.js"></script>
+  <!-- <script src="/js/login.js"></script> -->
+  <script src="/js/routes.js"></script>
+  <!-- !JS Includes -->
+</body>
+
+</html>

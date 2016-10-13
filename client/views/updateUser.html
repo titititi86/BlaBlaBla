@@ -1,0 +1,21 @@
+  <h1>Update {{user.firstname}} {{user.lastname}}</h1>
+
+  <form ng-submit="updateUser()">
+    <div class="form-group">
+      <label>First name</label>
+      <input type="text" class="form-control" placeholder="First name" ng-model="user.firstname"></input>
+    </div>
+    <div class="form-group">
+      <label>Last name</label>
+      <input type="text" class="form-control" placeholder="Last name" ng-model="user.lastname"></input>
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" class="form-control" placeholder="Email" ng-model="user.email"></input>
+    </div>
+    <div class="form-group">
+     <label>Postal address</label>
+     <input type="text" class="form-control" placeholder="Postal address" ng-model="user.postalAddress"></input>
+   </div>
+   <button type="submit" class="btn btn-primary">Submit</button>
+ </form>

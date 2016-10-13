@@ -1,0 +1,95 @@
+<h1> PROFILE</h1>
+<button ng-click="friendRequest(user.id)"> Add as friend </button><br><br>
+
+<table class="table table-bordered">
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>email</th>
+    <th>Postal address</th>
+    <th>Actions</th>
+  </tr>
+  <tr>
+    <td>{{user.firstname}}</td>
+    <td>{{user.lastname}}</td>
+    <td>{{user.email}}</td>
+    <td>{{user.postalAddress}}</td>
+    <td>
+      <a href="/updateUser/{{user._id}}">Edit Profile</a> |
+      <a href="#" ng-click="deleteUser()">Delete Profile</a>
+      <button ng-click="postLike()">Like {{post.like_count}}</button>
+    </td>
+  </tr>
+  </table>
+
+<div>
+  <h3>Message List</h3>
+  <table class="table table-bordered">
+    <tr>
+      <th>Title</th>
+      <th>Text</th>
+      <th>Actions</th>
+    </tr>
+    <tr ng-repeat="message in pfl.messages">
+        <td>{{message.title}}</td>
+        <td>{{message.text}}</td>
+        <td>
+          <button class="btn" ng-click="pfl.removeMessage(message._id)">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+          </button>
+        </td>
+    </tr>
+  </table>
+</div>
+
+<!-- <div ng-show="userStatus"> -->
+<div>
+  <form ng-submit="pfl.sendMessage()">
+    <fieldset>
+      <legend>Add a publication</legend>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title" placeholder="Title" ng-model="pfl.newmsg.title">
+      </div>
+      <div class="form-group">
+        <label for="text">Text</label>
+        <textarea class="form-control" id="text" placeholder="Message" ng-model="pfl.newmsg.text"></textarea>
+      </div>
+      <button type="submit" class="btn btn-default">Send Message</button>
+    </fieldset>
+  </form>
+</div>
+
+<br>
+<br>
+
+
+
+
+
+<h3>Friend's List</h3>
+<div ng-controller=" profileController">
+    <ul>
+        <li ng-repeat="friend in user.friend"> {{ friend }}  </li>
+    </ul>
+</div>
+<div ng-controller="profileController">
+<table class="table table-bordered">
+    <tr>
+        <th>Friend</th>
+        <th>Status</th>
+        <th>Since</th>
+        <th>Actions</th>
+    </tr>
+    <tr ng-repeat="user in users">
+        <td>{{user.friend.firstname}}</td>
+        <td>{{user.status}}</td>
+        <td>{{user.added}}</td>
+        <td>
+            <button class="btn" ng-click="user.Friend(user._id)">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </button>
+        </td>
+    </tr>
+</table>
+</div>

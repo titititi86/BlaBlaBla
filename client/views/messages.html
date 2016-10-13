@@ -1,0 +1,32 @@
+<h1>Message List</h1>
+<table class="table table-bordered">
+  <tr>
+    <th>User</th>
+    <th>Title</th>
+    <th>Text</th>
+    <th>Actions</th>
+  </tr>
+  <tr ng-repeat="message in msg.messages">
+    <td>{{message.user.firstname}} {{message.user.lastname}}</td>
+    <td>{{message.title}}</td>
+    <td>{{message.text}}</td>
+    <td>
+      <button class="btn" ng-click="msg.removeMessage(message._id)">
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+      </button>
+    </td>
+  </tr>
+</table>
+<div>
+  <form ng-submit="msg.sendMessage()">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title" placeholder="Title" ng-model="msg.newmsg.title">
+    </div>
+    <div class="form-group">
+      <label for="text">Text</label>
+      <textarea class="form-control" id="text" placeholder="Message" ng-model="msg.newmsg.text"></textarea>
+    </div>
+    <button type="submit" class="btn btn-default">Send Message</button>
+  </form>
+</div>

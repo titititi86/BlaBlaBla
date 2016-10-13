@@ -1,0 +1,25 @@
+  <h3>Users List</h3>
+<table class="table table-hover table-bordered">
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Email</th>
+    <th>Address</th>
+    <th>Actions</th>
+  </tr>
+  <tr ng-repeat="user in list">
+
+    <td>{{user.firstname}}</td>
+    <td>{{user.lastname}}</td>
+    <td>{{user.email}}</td>
+    <td>{{user.postalAddress}}</td>
+    <td><a href="/profile/{{user._id}}">Show Profile</a></td>
+
+
+</tr>
+
+</table>
+
+
+<!-- <input type="text" value="{{user.username}}"/> -->
+
